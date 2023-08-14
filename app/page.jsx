@@ -7,35 +7,48 @@ import { AiOutlineMail } from 'react-icons/ai'
 import { motion } from "framer-motion";
 
 
+
+const container = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.2
+    }
+  }
+};
+
+const item = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1
+  }
+};
+
+
 const page = () => {
   return (
-    <motion.div className='h-[100vh]'
-
-    initial={{
-      opacity: 0,
-      scale:.95
-    }}
-    animate={{
-      opacity: 1,
-      scale:1
-    }}
-    transition={{
-      duration: .5,
-      delay: .5,
-   
-    }}
- 
-    
-    >
+    <div className='h-[100vh]'>
       <div>
         <div className='flex justify-center items-center p-12  flex-col  gap-4 ' >
           <Image className='rounded-full border-4 w-64  ' src={profilePhoto}/>
           <div className='text-4xl text-white'>Erkan KOLAKAN</div>
           <hr className='w-full'/>
         </div>
-        <div className='flex flex-col gap-24'>
-          <div className='flex justify-center justify-evenly '>
+
+        <motion.div className='flex flex-col gap-24'
+        variants={container}
+        initial="hidden"
+        animate="visible"
+        
+        >
+
+          <div className='flex justify-center justify-evenly'>
             <motion.div className='w-[30rem] h-[10rem]  bg-white rounded-xl'
+            variants={item}
             whileHover={{
               scale:1.05,
             }}
@@ -53,6 +66,7 @@ const page = () => {
             </motion.div>
 
             <motion.div className='w-[30rem] h-[10rem]  bg-white rounded-xl '
+            variants={item}
             whileHover={{
               scale:1.05,
             }}
@@ -70,6 +84,7 @@ const page = () => {
             </motion.div>
             
             <motion.div className='  w-[30rem] h-[10rem]  bg-white  rounded-xl'
+            variants={item}
             whileHover={{
               scale:1.05,
             }}
@@ -89,6 +104,7 @@ const page = () => {
 
           <div className='flex justify-center justify-evenly '>
             <motion.div className='w-[30rem] h-[10rem]  bg-white rounded-xl'
+            variants={item}
             whileHover={{
               scale:1.05,
             }}
@@ -105,6 +121,7 @@ const page = () => {
               </div>
             </motion.div>
             <motion.div className='w-[30rem] h-[10rem]  bg-white rounded-xl'
+            variants={item}
             whileHover={{
               scale:1.05,
             }}
@@ -121,9 +138,9 @@ const page = () => {
               </div>
             </motion.div>
           </div>
-        </div> 
+        </motion.div> 
       </div>
-    </motion.div>
+    </div>
   )
 }
 
