@@ -8,6 +8,15 @@ import { motion } from "framer-motion";
 import Link from 'next/link'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import  ApexChart from './components/ApexChart'
+
+const chartData1 = [100]; 
+const chartData2 = [90]; 
+const chartData3 = [90]; 
+const chartData4 = [75]; 
+const chartData5 = [75]; 
+const chartData6 = [50]; 
+const chartData7 = [75]; 
 
 
 const container = {
@@ -179,6 +188,20 @@ const page = () => {
         pauseOnHover
         theme="light"
       />
+      <div className='flex flex-col h-[100vh] w-full justify-center items-center'>
+      <div className='flex gap-24 ' >
+        <ApexChart title="HTML" seriesData={chartData1} />
+        <ApexChart title="CSS" seriesData={chartData2} />
+        <ApexChart title="tailwindcss" seriesData={chartData3} />
+        <ApexChart title="JavaScript" seriesData={chartData4} />
+      </div>
+      <div className='gap-24  flex'>
+        <ApexChart title="React" seriesData={chartData5} />
+        <ApexChart title="ThreeJS" seriesData={chartData6} />
+        <ApexChart title="Next.js" seriesData={chartData7} />
+      </div>
+    </div>
+
     </div>
     </>
     
