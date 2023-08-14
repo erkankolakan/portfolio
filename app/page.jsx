@@ -5,7 +5,9 @@ import profilePhoto from './image/erkan.jpg'
 import { BsGithub, BsInstagram,BsLinkedin,BsTelephone } from 'react-icons/bs'
 import { AiOutlineMail } from 'react-icons/ai'
 import { motion } from "framer-motion";
-
+import Link from 'next/link'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const container = {
@@ -29,8 +31,27 @@ const item = {
 };
 
 
+
+const kopyala = () => {
+  const numaram = "05415678985"
+  navigator.clipboard.writeText(numaram)
+  .then(() => {
+    toast('Telefon numarası kopyalandı!');
+  })
+  .catch(err => {
+    console.error('Kopyalama sırasında hata oluştu: ', err);
+  });
+  
+}
+
+
+
 const page = () => {
+
+
+  
   return (
+    <>
     <div className='h-[100vh]'>
       <div>
         <div className='flex justify-center items-center p-12  flex-col  gap-4 ' >
@@ -47,7 +68,8 @@ const page = () => {
         >
 
           <div className='flex justify-center justify-evenly'>
-            <motion.div className='w-[30rem] h-[10rem]  bg-white rounded-xl'
+           <Link href="https://github.com/erkankolakan"  target="_blank" rel="noopener noreferrer"  > 
+           <motion.div  className='w-[30rem] h-[10rem]  bg-white rounded-xl '
             variants={item}
             whileHover={{
               scale:1.05,
@@ -64,7 +86,8 @@ const page = () => {
                 <BsGithub size={"80px"}/> Git Hub
               </div>
             </motion.div>
-
+            </Link>
+            <Link href="https://www.linkedin.com/in/erkan-kolakan-03138b1a3/"  target="_blank" rel="noopener noreferrer">
             <motion.div className='w-[30rem] h-[10rem]  bg-white rounded-xl '
             variants={item}
             whileHover={{
@@ -82,7 +105,8 @@ const page = () => {
                 <BsLinkedin size={"70px"}/> Linkedin
               </div>
             </motion.div>
-            
+            </Link>
+            <Link href="https://www.instagram.com/erkankolakans/"  target="_blank" rel="noopener noreferrer">
             <motion.div className='  w-[30rem] h-[10rem]  bg-white  rounded-xl'
             variants={item}
             whileHover={{
@@ -100,9 +124,10 @@ const page = () => {
                 <BsInstagram size={"70px"}/> Instagram
               </div>
             </motion.div>
+            </Link>
           </div>
-
           <div className='flex justify-center justify-evenly '>
+          <Link href="mailto:erkankolakan@gmail.com"  target="_blank" rel="noopener noreferrer">
             <motion.div className='w-[30rem] h-[10rem]  bg-white rounded-xl'
             variants={item}
             whileHover={{
@@ -120,7 +145,9 @@ const page = () => {
                 <AiOutlineMail size={"70px"}/> E-Mail
               </div>
             </motion.div>
-            <motion.div className='w-[30rem] h-[10rem]  bg-white rounded-xl'
+            </Link>
+         
+            <motion.div onClick={kopyala}  className='w-[30rem] h-[10rem]  bg-white rounded-xl'
             variants={item}
             whileHover={{
               scale:1.05,
@@ -140,7 +167,21 @@ const page = () => {
           </div>
         </motion.div> 
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
+    </>
+    
   )
 }
 
