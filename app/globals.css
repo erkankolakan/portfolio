@@ -1,4 +1,7 @@
 
+
+
+
 body {
   overflow: auto; /* İçeriğin taşması durumunda kaydırma çubuğu görünecek */
   scroll-behavior: smooth;
