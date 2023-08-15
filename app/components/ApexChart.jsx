@@ -81,7 +81,7 @@ class ApexChart extends React.Component {
         stroke: {
           lineCap: 'round'
         },
-        labels: [title], // İsim buraya eklendi
+        labels: [title], 
     };
 
     return (
