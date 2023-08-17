@@ -90,7 +90,7 @@ class ApexChart extends React.Component {
             options={options}
             series={seriesData}
             type="radialBar"
-            height={350} 
+            height={300} 
             className="flex block"
           />
       </div>
